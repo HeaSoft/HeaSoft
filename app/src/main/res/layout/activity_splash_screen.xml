@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:foo="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_splash_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#141d26"
+    tools:context="com.development.mobile.heasoft.heasoft.SplashScreen">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="70dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="100dp"
+            android:paddingBottom="100dp"
+            android:src="@drawable/heasoft_cut_png"
+            android:id="@+id/splash_image" />
+
+
+    <com.development.mobile.heasoft.heasoft.TextViewFonts
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/splash_text"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        foo:customFont="intro.ttf"
+        android:id="@+id/textViewFonts"
+        android:textSize="26sp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignBottom="@+id/splash_image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

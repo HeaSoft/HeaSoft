@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:background="@color/colorPrimary">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/heasoft_cut_png"
+        android:id="@+id/heasoft_image"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        android:layout_weight="0.5"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:text="Heasoft - амбициозная быстроразвивающаяся студия, занимающаяся разработкой собственного программного обеспечения и системных утилит. Наш продукт имеет высокое качество, так как вкладываем мы в него душу :)"/>
+
+</LinearLayout>

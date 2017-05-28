@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HeaSoft</string>
+    <string name="splash_text">изобретая прекрасное</string>
+    <string name="Copyright">© 2017, HeaSoft. All rights reserved.</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>
