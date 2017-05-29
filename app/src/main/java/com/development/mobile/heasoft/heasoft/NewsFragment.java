@@ -22,8 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NewsFragment extends Fragment{
 
-    private final String APINEWSKEY="360d5d5a263143efb06db21d011bb235";
-    private final String BASE_URL = "https://newsapi.org";
+    private final String BASE_URL = "http://195.19.44.155";
     private NewsInterface service;
     private ProgressBar prBar;
     private ArrayList<ModelItem> itemsList;
@@ -55,33 +54,30 @@ public class NewsFragment extends Fragment{
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         service = retrofit.create(NewsInterface.class);
-        Call<ModelNews> call = service.getNews("bloomberg", APINEWSKEY);
-        call.enqueue(new Callback<ModelNews>() {
+        Call<Example> call = service.getNews();
+        call.enqueue(new Callback<Example>() {
             @Override
-            public void onResponse(Call<ModelNews> call, Response<ModelNews> response) {
+            public void onResponse(Call<Example> call, Response<Example> response) {
                 prBar.setVisibility(View.GONE);
                 recyclerView.setVisibility(View.VISIBLE);
-                List<Article> project = response.body().getArticles();
+                List<News> news = response.body().getNews();
 
-                for(int i =0; i<project.size(); i++) {
-
-
-
-                    itemsList.add(new ModelItem(project.get(i).getAuthor(),project.get(i).getUrlToImage(), project.get(i).getTitle(), project.get(i).getDescription()));
+                for(int i =0; i<news.size(); i++) {
+                    itemsList.add(new ModelItem(news.get(i).getAuthor(), R.mipmap.ic_launcher, news.get(i).getTitle(), news.get(i).getContent()));
                 }
                 adapter.addAll(itemsList);
             }
 
             @Override
-            public void onFailure(Call<ModelNews> call, Throwable t) {
-                //TODO: реализовать ошибку подключения
+            public void onFailure(Call<Example> call, Throwable t) {
+
             }
         });
+
         return view;
     }
     private class RecyclerViewHolder extends RecyclerView.ViewHolder {
-        private TextView title;
-        private ImageView image;
+
 
         private TextView headerTag;
         private TextView headerDesk;
@@ -89,7 +85,7 @@ public class NewsFragment extends Fragment{
         private ImageView imgIdHeader;
 
 
-        RecyclerViewHolder(View itemView, int idNews) {
+        RecyclerViewHolder(View itemView) {
             super(itemView);
             headerTag = (TextView) itemView.findViewById(R.id.tagHeader);
             headerDesk = (TextView) itemView.findViewById(R.id.deskHeader);
@@ -99,12 +95,7 @@ public class NewsFragment extends Fragment{
         }
 
         void bind(ModelItem modelItem) {
-            image.setImageBitmap(BitmapFactory.decodeResource(itemView.getResources(), modelItem.getImgIdHeader()));
-            title.setText(modelItem.getHeaderDesk());
-        }
-
-
-        void bind(ModelItem modelItem, int i) {
+            imgIdHeader.setImageBitmap(BitmapFactory.decodeResource(itemView.getResources(), modelItem.getImgIdHeader()));
             headerTag.setText(modelItem.getHeaderTag());
             headerDesk.setText(modelItem.getHeaderDesk());
             headerAuthor.setText(modelItem.getHeaderAuthor());
@@ -125,12 +116,12 @@ public class NewsFragment extends Fragment{
         @Override
         public NewsFragment.RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_news, parent, false);
-            return new NewsFragment.RecyclerViewHolder(view, 1);
+            return new NewsFragment.RecyclerViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(NewsFragment.RecyclerViewHolder holder, int position) {
-            holder.bind(items.get(position), 1);
+            holder.bind(items.get(position));
         }
 
         @Override
