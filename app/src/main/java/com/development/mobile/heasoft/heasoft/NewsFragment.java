@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
@@ -62,8 +65,8 @@ public class NewsFragment extends Fragment{
                 recyclerView.setVisibility(View.VISIBLE);
                 List<News> news = response.body().getNews();
 
-                for(int i =0; i<news.size(); i++) {
-                    itemsList.add(new ModelItem(news.get(i).getAuthor(), R.mipmap.ic_launcher, news.get(i).getTitle(), news.get(i).getContent()));
+                for(int i =news.size()-1; i>=0; i--) {
+                    itemsList.add(new ModelItem(news.get(i).getAuthor(), news.get(i).getUrlToImage(), news.get(i).getTitle(), news.get(i).getContent()));
                 }
                 adapter.addAll(itemsList);
             }
@@ -95,7 +98,10 @@ public class NewsFragment extends Fragment{
         }
 
         void bind(ModelItem modelItem) {
-            imgIdHeader.setImageBitmap(BitmapFactory.decodeResource(itemView.getResources(), modelItem.getImgIdHeader()));
+            try {
+                Picasso.with(getActivity().getApplicationContext()).load("http://195.19.44.155/anton/images/" + modelItem.getUrlToImage() + ".png").into(imgIdHeader);
+            }
+            catch (Exception ignored){}
             headerTag.setText(modelItem.getHeaderTag());
             headerDesk.setText(modelItem.getHeaderDesk());
             headerAuthor.setText(modelItem.getHeaderAuthor());

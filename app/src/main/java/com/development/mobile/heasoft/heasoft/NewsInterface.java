@@ -5,6 +5,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 interface NewsInterface {
-    @GET("/anton/sql.php")
+    @GET("/anton/getNews.php")
     Call<Example> getNews();
 }

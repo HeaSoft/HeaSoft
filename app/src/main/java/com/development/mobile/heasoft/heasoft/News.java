@@ -32,7 +32,7 @@ public class News {
     private Object type;
     @SerializedName("urlToImage")
     @Expose
-    private Object urlToImage;
+    private String urlToImage;
 
     public String getId() {
         return id;
@@ -98,11 +98,11 @@ public class News {
         this.type = type;
     }
 
-    public Object getUrlToImage() {
+    public String getUrlToImage() {
         return urlToImage;
     }
 
-    public void setUrlToImage(Object urlToImage) {
+    public void setUrlToImage(String urlToImage) {
         this.urlToImage = urlToImage;
     }
 }
