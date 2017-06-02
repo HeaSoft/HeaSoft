@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private NewsFragment newsFragment;
     private AboutFragment aboutFragment;
+    private ProjectsFragment projectsFragment;
     private FragmentTransaction fTrans;
     private  boolean check = false;
     @Override
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         newsFragment = new NewsFragment();
         aboutFragment = new AboutFragment();
+        projectsFragment = new ProjectsFragment();
 
     }
 
@@ -76,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_news) {
             fTrans.replace(R.id.fragCont, newsFragment);
         } else if (id == R.id.nav_projects) {
-
+            fTrans.replace(R.id.fragCont, projectsFragment);
         } else if (id == R.id.nav_settings) {
 
         } else if (id == R.id.nav_help) {

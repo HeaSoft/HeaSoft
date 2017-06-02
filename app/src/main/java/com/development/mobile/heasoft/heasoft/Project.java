@@ -3,7 +3,7 @@ package com.development.mobile.heasoft.heasoft;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class News {
+public class Project {
 
     @SerializedName("id")
     @Expose
@@ -14,27 +14,18 @@ public class News {
     @SerializedName("title")
     @Expose
     private String title;
-    @SerializedName("author")
+    @SerializedName("description")
     @Expose
-    private String author;
+    private String description;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
-    @SerializedName("content")
-    @Expose
-    private String content;
-    @SerializedName("bigcontent")
-    @Expose
-    private String bigcontent;
-    @SerializedName("type")
-    @Expose
-    private String type;
     @SerializedName("urlToImage")
     @Expose
     private String urlToImage;
-    @SerializedName("likes")
+    @SerializedName("url")
     @Expose
-    private String likes;
+    private String url;
 
     public String getId() {
         return id;
@@ -60,12 +51,12 @@ public class News {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public String getDescription() {
+        return description;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getCreatedAt() {
@@ -76,30 +67,6 @@ public class News {
         this.createdAt = createdAt;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getBigcontent() {
-        return bigcontent;
-    }
-
-    public void setBigcontent(String bigcontent) {
-        this.bigcontent = bigcontent;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getUrlToImage() {
         return urlToImage;
     }
@@ -108,12 +75,12 @@ public class News {
         this.urlToImage = urlToImage;
     }
 
-    public String getLikes() {
-        return likes;
+    public String getUrl() {
+        return url;
     }
 
-    public void setLikes(String likes) {
-        this.likes = likes;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 }
